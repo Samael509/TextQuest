@@ -24,7 +24,7 @@ namespace TextQuest
         static Enemy skeletonEnemy = new Enemy("скелет", 30, 10, 10);
         static Enemy troll = new Enemy("троль", 20, 15, 30);
         static Enemy archer = new Enemy("лучник", 20, 10, 35);
-        static Enemy ogre = new Enemy("огр", 70, 30, 80);
+        static Enemy ogre = new Enemy("огр", 70, 30, 80, true);
         static Enemy goblin = new Enemy("гоблин", 30, 8, 15);
         static Enemy kobold = new Enemy("кобольд", 25, 6, 12);
         static Enemy zombie = new Enemy("зомби", 30, 15, 20);
@@ -239,7 +239,7 @@ namespace TextQuest
 
             if (enemy.Name == "огр")
             {
-                if (random.Next(0, 100) < 10)
+                if (random.Next(0, 100) < 15)
                 {
                     enemy.IsStunning = true;
                     Console.WriteLine("огр оглушил вас! Следующий ход пропущен.");
