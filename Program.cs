@@ -7,7 +7,6 @@ namespace TextQuest
     {
         static Random random = new Random();
         static int coins = 0;
-        static int bones = 0; // вырезать
         static bool hasFoundExit = false;
 
         static bool devMode = false;
@@ -82,7 +81,7 @@ namespace TextQuest
                     break;
                 }
 
-                Console.WriteLine($"\nтекущие монеты: {coins}, кости: {bones}, здоровье: {playerHp}");
+                Console.WriteLine($"\nтекущие монеты: {coins}, здоровье: {playerHp}");
                 Console.WriteLine("что вы хотите сделать? (1 - влево/ 2 - вправо/ 3 - прямо/ 4 - торговец)/ 5 - сундук (DEV)/ 6 - vic (DEV)");
                 string choice = Console.ReadLine().ToLower();
 
@@ -92,7 +91,6 @@ namespace TextQuest
                     Console.WriteLine("DEV MODE: ON");
                     playerHp = 99999;
                     playerDamage = 999999;
-                    bones = 9999;
                     hasAmulet = true;
                     hasShield = true;
                     continue;
@@ -153,20 +151,10 @@ namespace TextQuest
             }
 
             Console.WriteLine("вы нашли сундук! что внутри?");
-            int lootType = random.Next(0, 2);
+            int coinsFound = random.Next(20, 100);
+            coins += coinsFound;
+            Console.WriteLine($"в сундуке вы нашли {coinsFound} монет");
 
-            if (lootType == 0)
-            {
-                int coinsFound = random.Next(20, 100);
-                coins += coinsFound;
-                Console.WriteLine($"в сундуке вы нашли {coinsFound} монет!");
-            }
-            else
-            {
-                int bonesFound = random.Next(3, 20);
-                bones += bonesFound;
-                Console.WriteLine($"в сундуке вы нашли {bonesFound} костей!");
-            }
         }
 
         static void DevWin()
