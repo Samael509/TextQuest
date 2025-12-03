@@ -7,7 +7,7 @@ namespace TextQuest
     {
         static Random random = new Random();
         static int coins = 0;
-        static int bones = 0;
+        static int bones = 0; // вырезать
         static bool hasFoundExit = false;
 
         static bool devMode = false;
